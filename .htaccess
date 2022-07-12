@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+
+	RewriteCond %{THE_REQUEST} /index\.php/(.+)\sHTTP [NC]
+	RewriteRule ^ /%1 [NE,L,R]
+
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.+)$ /mc-v1/index.php#$1 [L]
+</IfModule>
